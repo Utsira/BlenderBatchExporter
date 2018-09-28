@@ -3,14 +3,18 @@
 import os, subprocess, argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--path', '-p', help = "path to a folder containing .blend files", type = str)
-parser.add_argument('--scale', help = "amount to scale the geometry by", type = float, default = 1)
+optional = parser._action_groups.pop()
+required = parser.add_argument_group('required arguments')
+required.add_argument('--input', '-i', help = "path to a folder containing .blend files", required = True, type = str)
+required.add_argument('--output', '-o', help = "path to the folder to output converted files to.", required = True, type = str)
+optional.add_argument('--scale', help = "amount to scale the geometry by", type = float, default = 1)
+parser._action_groups.append(optional)
 args = parser.parse_args()
 
-for file in os.listdir(args.path):
+for file in os.listdir(args.input):
     nameExt = os.path.splitext(file)
     if nameExt[1] == ".blend":
-        sourcePath = os.path.join(args.path, file)
-        outputPath = os.path.join(args.path, "objFiles", nameExt[0] + ".obj")
+        sourcePath = os.path.join(args.input, file)
+        outputPath = os.path.join(args.output, nameExt[0] + ".obj")
         bashCommand = "/Applications/Blender/blender.app/Contents/MacOS/blender --background {source} --python exportObj.py -- {dest} {scale}".format(source = sourcePath, dest = outputPath, scale = args.scale)
         subprocess.check_call(bashCommand.split())
