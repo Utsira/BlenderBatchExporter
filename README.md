@@ -5,7 +5,8 @@ Exports a folder full of Blender files to OBJ format. Defaults: selected object 
 ### Usage 
 
 ```
-batchExportObj.py [-h] --input INPUT --output OUTPUT [--scale SCALE]
+batchExportObj.py [-h] --input INPUT --output OUTPUT
+                         [--blender BLENDER] [--scale SCALE]
 
 required arguments:
   --input INPUT, -i INPUT
@@ -15,6 +16,9 @@ required arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
+  --blender BLENDER, -b BLENDER
+                        path to the Blender command line tool. Defaults to /Ap
+                        plications/Blender/blender.app/Contents/MacOS/blender
   --scale SCALE         amount to scale the geometry by
 ```
 
