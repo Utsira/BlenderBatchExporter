@@ -24,6 +24,4 @@ def main():
             outputPath = os.path.join(args.output, nameExt[0] + ".obj")
             bashCommand = f'{args.blender} --background {sourcePath} --python exportObj.py -- {outputPath} {args.scale}'
             subprocess.check_call(bashCommand.split())
-
-if __name__ == '__main__':
-   main()
+            
