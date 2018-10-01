@@ -7,7 +7,7 @@ module = "BlenderBatchExporter"
 author = "Oliver Dew"
 author-email = "olidew@gmail.com"
 description-file = "README.md"
-requires-python = "3"
+requires-python = ">=3"
 home-page = "https://github.com/Utsira/BlenderBatchExporter"
 classifiers = [
     "License :: OSI Approved :: MIT License",
