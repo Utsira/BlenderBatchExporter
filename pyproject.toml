@@ -1,0 +1,11 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "BlenderBatchExporter"
+author = "Oliver Dew"
+author-email = "olidew@gmail.com"
+home-page = "https://github.com/Utsira/BlenderBatchExporter"
+classifiers = ["License :: OSI Approved :: MIT License"]
+
