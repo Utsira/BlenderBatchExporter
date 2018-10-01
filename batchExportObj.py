@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/bin/python3
 
 import os, subprocess, argparse
 
@@ -16,5 +16,5 @@ for file in os.listdir(args.input):
     if nameExt[1] == ".blend":
         sourcePath = os.path.join(args.input, file)
         outputPath = os.path.join(args.output, nameExt[0] + ".obj")
-        bashCommand = "/Applications/Blender/blender.app/Contents/MacOS/blender --background {source} --python exportObj.py -- {dest} {scale}".format(source = sourcePath, dest = outputPath, scale = args.scale)
+        bashCommand = f'/Applications/Blender/blender.app/Contents/MacOS/blender --background {sourcePath} --python exportObj.py -- {outputPath} {args.scale}'
         subprocess.check_call(bashCommand.split())
