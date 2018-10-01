@@ -6,6 +6,13 @@ build-backend = "flit.buildapi"
 module = "BlenderBatchExporter"
 author = "Oliver Dew"
 author-email = "olidew@gmail.com"
+description-file = "README.md"
+requires-python = "3"
 home-page = "https://github.com/Utsira/BlenderBatchExporter"
-classifiers = ["License :: OSI Approved :: MIT License"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3"
+]
 
+[tool.flit.scripts]
+batchExportObj = "BlenderBatchExporter:main"
