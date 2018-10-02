@@ -1,8 +1,9 @@
 #!/usr/local/bin/python3
 
-import os, subprocess, argparse
+import os, subprocess, argparse, inspect, pkg_resources
 
 def main():
+    pathToPythonScript = pkg_resources.resource_filename(__name__, "/exportObj.py")
     parser = argparse.ArgumentParser()
     optional = parser._action_groups.pop()
     required = parser.add_argument_group('required arguments')
@@ -22,6 +23,8 @@ def main():
         if nameExt[1] == ".blend":
             sourcePath = os.path.join(args.input, file)
             outputPath = os.path.join(args.output, nameExt[0] + ".obj")
-            bashCommand = f'{args.blender} --background {sourcePath} --python exportObj.py -- {outputPath} {args.scale}'
+            bashCommand = f'{args.blender} --background {sourcePath} --python {pathToPythonScript} -- {outputPath} {args.scale}'
             subprocess.check_call(bashCommand.split())
-            
+
+if __name__ == '__main__':
+   main()
